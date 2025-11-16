@@ -52,11 +52,8 @@ def order_item(item):
     if(resources["coffee"] < menu[item]["coffee"]):
         print("Sorry there is not enough coffee.")
         return
-    if(item != "espresso" and resources["milk"] < menu[item]["milk"]):
+    if("milk" in menu[item] and resources["milk"] < menu[item]["milk"]):
         print("Sorry there is not enough milk.")
-        return
-    if(resources["money"] <= 0 and menu[item]["cost"] > resources["money"]):
-        print("Sorry there is not enough money to charge.")
         return
 
     # Inserindo moedas
@@ -74,14 +71,22 @@ def order_item(item):
         return
 
     change = total_inserted - item_cost
+    
+    # Verificar se a máquina tem dinheiro suficiente para dar o troco
+    if change > resources["money"]:
+        print(f"Sorry, the machine doesn't have enough change (${change:.2f} needed, ${resources['money']:.2f} available). Money refunded.")
+        return
+    
     if change > 0:
         print(f"Here is ${change:.2f} in change.")
+        resources["money"] -= change  # Retirando o troco do dinheiro da máquina
 
     # Atualizando os recursos da maquina
-    resources["money"] += item_cost
+    resources["money"] += total_inserted  # Adiciona todo o dinheiro inserido
     resources["water"] -= menu[item]["water"]
     resources["coffee"] -= menu[item]["coffee"]
-    resources["milk"] -= menu[item]["milk"]
+    if "milk" in menu[item]:
+        resources["milk"] -= menu[item]["milk"]
 
     # Entregando o item
     print(f"Here is your {item}. Enjoy!")
@@ -127,6 +132,11 @@ while exit == False:
                 water_add = int(input("Enter amount of water to add (ml): "))
                 milk_add = int(input("Enter amount of milk to add (ml): "))
                 coffee_add = int(input("Enter amount of coffee to add (g): "))
+                
+                add_money = input("Do you want to add money for change? (yes/no): ").lower().strip()
+                if add_money == "yes":
+                    money_add = float(input("Enter amount of money to add ($): "))
+                    resources["money"] += money_add
 
                 resources["water"] += water_add
                 resources["milk"] += milk_add
