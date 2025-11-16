@@ -1,0 +1,144 @@
+Imprimir mais de uma linha: print("teste1\n,teste2")
+Concatenação: print("teste" + "1")
+input exemplo:
+nome = input("Qual seu nome? ")
+
+Tamanho de uma string: len(variavel)
+
+Pegar posições em strings ou arrays:
+string name = teste
+print("teste"[2])
+
+ver o tipo de uma variável ou dado digitado: type(variável/dado)
+
+Conversão de variáveis:
+print(int("123") + int("456")) = Retorna a soma 578
+
+int()
+float()
+str()
+bool()
+
+operadores observações (caso eu queira uma divisão arredondando para baixo, utilizo duas barras, assim 5 // 3 que retornara 1)
+
+expoente (para utilizar basta colocar 2 asteriscos, exemplo. 2 ** 3 = 8 (2x2x2)
+
+prioridade de calculo (parênteses, expoentes, multiplicação, divisão, adição)
+
+arredondar valores(round(valor))
+arredondar casas decimais(round(valor,num casas)
+
+inserir valores dentro de uma string sem concatenar, basta usar o f string, e chaves. exemplo:
+print(f"seu placar é: {placar}")
+
+sintaxes:
+
+if/else
+if condition:
+   do this
+else:
+   do this
+
+
+else if aninhados: usar o elif
+
+if condition1:
+   do this
+elif condicao2:
+   do this
+else:
+   do this
+
+
+operadores lógicos: and / or / not 
+
+modulo random. 
+sintaxe com intervalo: random(intervalo inicio, intervalo fim)
+sintaxe com random sem intervalo: random.random() 
+
+exemplo
+import random
+
+random_num = random.randint(1,10)
+
+
+
+operador de modulo (resto da divisão): 10 % 3 =1
+
+array:
+cidades = ["cidade1", "cidade2"]
+
+add item em uma lista: cidades.append("cidade3")
+add uma lista de items dentro de outra para que formem uma só: cidades.extend(["cidade4", "cidade5"])
+
+escolher um item de uma lista. exemplo:
+amigos = ["carol", "Carolzinh"]
+print(random.choice(amigos))
+
+podemos buscar a partir de um índice gerado aleatoriamente. exemplo:
+random_index = random.randomint(0,4)
+print(amigos[random_index])
+
+
+For loop:
+for item in list_of_items:
+  # Do something to each item
+
+somar todos os items de uma lista:
+sum(lista)
+
+retornar o maior numero de uma lista:
+max(lista)
+
+loop com range:
+for item in range(a,b):
+  # Do something to each item
+
+reordenar a ordem de uma lista aleatoriamente:
+random.shuffle(lista)
+
+funções:
+def minha_funcao:
+   #Do Something
+
+while algo_e_verdadeiro:
+    #Do Something
+
+enumerate(palavra) retorna pares (índice, letra)
+Exemplo:
+palavra = "python" → enumerate(palavra) dá
+(0, 'p'), (1, 'y'), (2, 't'), ...
+
+isAlpha = valida se é uma letra de A a Z
+
+Funções com inputs:
+def minha função(param1, param2, param3):
+   print({param2})
+   #Do Something
+
+para enviar parâmetros fora de ordem:
+def minha função(param3 = param3, param2, param1 = param1):
+   print({param2})
+   #Do Something
+
+
+Dicionarios: 
+dicionario = {"chave": "valor", "chave": "valor"}
+
+visualizando dados de um dicionario: 
+print(dicionario["chave"])
+
+inserir um item em um dicionario existente:
+dicionario = ["novoItem"] = "Valor"
+
+criar um dicionario vazio:
+dicionario = {}
+
+imprimir um valor de dicionario:
+for key in dicionario:
+   print(key) # Imprime a chave
+   print(dicionario[key]) # Imprime o valor
+
+
+Docstring: Pequenas documentações que criamos quando estamos codificando. Para criar basta inserir a descrição que desejar entre 3 aspas
+""""Descrição da função"""
